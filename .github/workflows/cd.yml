@@ -1,0 +1,61 @@
+name: CD
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy-dev:
+    runs-on: ubuntu-latest
+    environment: dev
+    steps:
+      - uses: actions/checkout@v4
+      - uses: databricks/setup-cli@main
+
+      - name: Deploy to Dev
+        run: databricks bundle deploy --target dev
+        env:
+          DATABRICKS_HOST: ${{ secrets.DATABRICKS_DEV_HOST }}
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_DEV_TOKEN }}
+
+  deploy-uat:
+    needs: deploy-dev
+    runs-on: ubuntu-latest
+    environment: uat
+    steps:
+      - uses: actions/checkout@v4
+      - uses: databricks/setup-cli@main
+
+      - name: Deploy to UAT
+        run: databricks bundle deploy --target uat
+        env:
+          DATABRICKS_HOST: ${{ secrets.DATABRICKS_UAT_HOST }}
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_UAT_TOKEN }}
+
+  deploy-preprod:
+    needs: deploy-uat
+    runs-on: ubuntu-latest
+    environment: preprod
+    steps:
+      - uses: actions/checkout@v4
+      - uses: databricks/setup-cli@main
+
+      - name: Deploy to PreProd
+        run: databricks bundle deploy --target preprod
+        env:
+          DATABRICKS_HOST: ${{ secrets.DATABRICKS_PREPROD_HOST }}
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_PREPROD_TOKEN }}
+
+  deploy-prod:
+    needs: deploy-preprod
+    runs-on: ubuntu-latest
+    environment: prod
+    steps:
+      - uses: actions/checkout@v4
+      - uses: databricks/setup-cli@main
+
+      - name: Deploy to Prod
+        run: databricks bundle deploy --target prod
+        env:
+          DATABRICKS_HOST: ${{ secrets.DATABRICKS_PROD_HOST }}
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_PROD_TOKEN }}

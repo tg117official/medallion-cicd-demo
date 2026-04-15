@@ -1,0 +1,55 @@
+resources:
+  jobs:
+    medallion_pipeline:
+      name: medallion_pipeline_${var.env_name}
+
+      tasks:
+        - task_key: job1_rdbms_to_delta
+          spark_python_task:
+            python_file: ./src/job1_rdbms_to_delta.py
+            parameters:
+              - --catalog
+              - ${var.catalog_name}
+              - --schema
+              - ${var.schema_name}
+              - --env
+              - ${var.env_name}
+
+        - task_key: job2_autoloader_to_delta
+          depends_on:
+            - task_key: job1_rdbms_to_delta
+          spark_python_task:
+            python_file: ./src/job2_autoloader_to_delta.py
+            parameters:
+              - --catalog
+              - ${var.catalog_name}
+              - --schema
+              - ${var.schema_name}
+              - --env
+              - ${var.env_name}
+
+        - task_key: job3_silver_dq
+          depends_on:
+            - task_key: job2_autoloader_to_delta
+          spark_python_task:
+            python_file: ./src/job3_silver_dq.py
+            parameters:
+              - --catalog
+              - ${var.catalog_name}
+              - --schema
+              - ${var.schema_name}
+              - --env
+              - ${var.env_name}
+
+        - task_key: job4_gold_publish
+          depends_on:
+            - task_key: job3_silver_dq
+          spark_python_task:
+            python_file: ./src/job4_gold_publish.py
+            parameters:
+              - --catalog
+              - ${var.catalog_name}
+              - --schema
+              - ${var.schema_name}
+              - --env
+              - ${var.env_name}

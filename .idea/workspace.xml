@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="763c44fe-4b32-4cc2-8d93-7e24c6a8c5e5" name="Changes" comment="" />
+    <list default="true" id="763c44fe-4b32-4cc2-8d93-7e24c6a8c5e5" name="Changes" comment="medallion cicd demo">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/cd.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/cd.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/ci.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/databricks.yml" beforeDir="false" afterPath="$PROJECT_DIR$/databricks.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/jobs.yml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/jobs.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/job1_rdbms_to_delta.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/job1_rdbms_to_delta.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/job2_autoloader_to_delta.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/job2_autoloader_to_delta.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/job3_silver_dq.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/job3_silver_dq.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/job4_gold_publish.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/job4_gold_publish.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_basic.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_basic.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,9 +36,17 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Sandeep\PycharmProjects\medallion-cicd-demo" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -39,6 +62,27 @@
       <option name="presentableId" value="Default" />
       <updated>1776242102663</updated>
     </task>
+    <task id="LOCAL-00001" summary="medallion cicd demo">
+      <option name="closed" value="true" />
+      <created>1776242418242</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1776242418242</updated>
+    </task>
+    <task id="LOCAL-00002" summary="medallion cicd demo">
+      <option name="closed" value="true" />
+      <created>1776242448507</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1776242448507</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="medallion cicd demo" />
+    <option name="LAST_COMMIT_MESSAGE" value="medallion cicd demo" />
   </component>
 </project>
