@@ -1,0 +1,121 @@
+# ==========================================================
+# DATABRICKS BUNDLE DEMO - SIMPLE END-TO-END SCRIPT
+# Purpose:
+# 1. Check Databricks CLI
+# 2. Login with a working profile
+# 3. Verify authentication
+# 4. Create a simple bundle project
+# 5. Validate bundle
+# 6. Deploy bundle
+# 7. Run deployed job
+# ==========================================================
+
+
+# ----------------------------------------------------------
+# STEP 1: Check whether Databricks CLI is installed
+# ----------------------------------------------------------
+databricks -v
+
+
+# ----------------------------------------------------------
+# STEP 2: Login to Databricks workspace using a named profile
+# Replace host only if your workspace URL is different
+# This creates or refreshes profile "Sandy"
+# ----------------------------------------------------------
+databricks auth login --host https://dbc-9f50a039-6cf9.cloud.databricks.com --profile Sandy
+
+
+# ----------------------------------------------------------
+# STEP 3: Verify that profile is available
+# ----------------------------------------------------------
+databricks auth profiles
+
+
+# ----------------------------------------------------------
+# STEP 4: Test authentication using the SAME profile
+# If this works, auth is correct
+# ----------------------------------------------------------
+databricks current-user me --profile Sandy
+
+
+# ----------------------------------------------------------
+# STEP 5: Go to your project folder
+# ----------------------------------------------------------
+cd C:\Users\Sandeep\PycharmProjects\simple-bundle-demo
+
+
+# ----------------------------------------------------------
+# STEP 6: Create folder for source notebook if not already present
+# ----------------------------------------------------------
+mkdir src
+
+
+# ----------------------------------------------------------
+# STEP 7: Create notebook file
+# Open manually in editor and paste the Python code shown below
+# File path: src\hello_notebook.py
+# ----------------------------------------------------------
+# ---- START OF hello_notebook.py ----
+# # Databricks notebook source
+# print("Hello from Databricks Bundle Demo")
+# ---- END OF hello_notebook.py ----
+
+
+# ----------------------------------------------------------
+# STEP 8: Create bundle config file
+# Open manually in editor and paste the YAML shown below
+# File name: databricks.yml
+# ----------------------------------------------------------
+# ---- START OF databricks.yml ----
+# bundle:
+#   name: simple_bundle_demo
+#
+# targets:
+#   dev:
+#     default: true
+#     workspace:
+#       profile: Sandy
+#
+# resources:
+#   jobs:
+#     hello_job:
+#       name: hello_job_bundle_demo
+#       tasks:
+#         - task_key: hello_task
+#           notebook_task:
+#             notebook_path: ./src/hello_notebook.py
+# ---- END OF databricks.yml ----
+
+
+# ----------------------------------------------------------
+# STEP 9: Validate bundle configuration
+# This checks whether bundle syntax/config is correct
+# ----------------------------------------------------------
+databricks bundle validate --target dev
+
+
+# ----------------------------------------------------------
+# STEP 10: Deploy bundle to Databricks workspace
+# This creates or updates the Databricks job
+# ----------------------------------------------------------
+databricks bundle deploy --target dev
+
+
+# ----------------------------------------------------------
+# STEP 11: Run the deployed job
+# ----------------------------------------------------------
+databricks bundle run hello_job --target dev
+
+
+# ----------------------------------------------------------
+# STEP 12: Optional - open job list from CLI if needed
+# This helps confirm deployment happened
+# ----------------------------------------------------------
+databricks jobs list --profile Sandy
+
+
+# ----------------------------------------------------------
+# STEP 13: Optional cleanup - destroy deployed resources
+# Use only if you want to remove the demo job later
+# ----------------------------------------------------------
+# databricks bundle destroy --target dev
