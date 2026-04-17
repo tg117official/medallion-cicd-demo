@@ -1,6 +1,10 @@
 import argparse
 from pyspark.sql import SparkSession
 
+# Updated RDBMS to delta Job
+# Updated RDBMS to delta Job
+# Updated RDBMS to delta Job
+
 parser = argparse.ArgumentParser()
 parser.add_argument("--catalog", required=True)
 parser.add_argument("--schema", required=True)

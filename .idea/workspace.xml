@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="763c44fe-4b32-4cc2-8d93-7e24c6a8c5e5" name="Changes" comment="MCD-1 Added Code in files">
+    <list default="true" id="763c44fe-4b32-4cc2-8d93-7e24c6a8c5e5" name="Changes" comment="MCD-2 added cluster config">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/databricks.yml" beforeDir="false" afterPath="$PROJECT_DIR$/databricks.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/jobs.yml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/jobs.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands" beforeDir="false" afterPath="$PROJECT_DIR$/commands" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/job1_rdbms_to_delta.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/job1_rdbms_to_delta.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +15,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
@@ -25,15 +30,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "MCD-1-Update-rdbms-to-bronze-logic"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Sandeep\PycharmProjects\medallion-cicd-demo" />
@@ -78,12 +83,21 @@
       <option name="project" value="LOCAL" />
       <updated>1776245637392</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="MCD-2 added cluster config">
+      <option name="closed" value="true" />
+      <created>1776394056340</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1776394056340</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="medallion cicd demo" />
     <MESSAGE value="MCD-1 Added Code in files" />
-    <option name="LAST_COMMIT_MESSAGE" value="MCD-1 Added Code in files" />
+    <MESSAGE value="MCD-2 added cluster config" />
+    <option name="LAST_COMMIT_MESSAGE" value="MCD-2 added cluster config" />
   </component>
 </project>

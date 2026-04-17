@@ -22,7 +22,7 @@ databricks -v
 # Replace host only if your workspace URL is different
 # This creates or refreshes profile "Sandy"
 # ----------------------------------------------------------
-databricks auth login --host https://dbc-9f50a039-6cf9.cloud.databricks.com --profile Sandy
+databricks auth login --host https://adb-7405610751901586.6.azuredatabricks.net/ --profile dev
 
 
 # ----------------------------------------------------------
@@ -35,7 +35,7 @@ databricks auth profiles
 # STEP 4: Test authentication using the SAME profile
 # If this works, auth is correct
 # ----------------------------------------------------------
-databricks current-user me --profile Sandy
+databricks current-user me --profile dev
 
 
 # ----------------------------------------------------------
