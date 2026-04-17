@@ -17,32 +17,69 @@ targets:
     mode: development
     default: true
     workspace:
-      host: https://adb-DEV-WORKSPACE-URL
+      host: https://adb-7405610751901586.6.azuredatabricks.net/
     variables:
       catalog_name: dev_catalog
       schema_name: medallion_dev
       env_name: dev
+    resources:
+      jobs:
+        medallion_pipeline:
+          job_clusters:
+            - job_cluster_key: medallion_shared_cluster
+              new_cluster:
+                spark_version: "15.4.x-scala2.12"
+                node_type_id: "Standard_DS3_v2"
+                num_workers: 1
 
   uat:
     workspace:
-      host: https://adb-UAT-WORKSPACE-URL
+      host: https://adb-7405614389907274.14.azuredatabricks.net/
     variables:
       catalog_name: uat_catalog
       schema_name: medallion_uat
       env_name: uat
+    resources:
+      jobs:
+        medallion_pipeline:
+          job_clusters:
+            - job_cluster_key: medallion_shared_cluster
+              new_cluster:
+                spark_version: "15.4.x-scala2.12"
+                node_type_id: "Standard_DS3_v2"
+                num_workers: 1
 
   preprod:
     workspace:
-      host: https://adb-PREPROD-WORKSPACE-URL
+      host: https://adb-7405612367034538.18.azuredatabricks.net/
     variables:
       catalog_name: preprod_catalog
       schema_name: medallion_preprod
       env_name: preprod
+    resources:
+      jobs:
+        medallion_pipeline:
+          job_clusters:
+            - job_cluster_key: medallion_shared_cluster
+              new_cluster:
+                spark_version: "15.4.x-scala2.12"
+                node_type_id: "Standard_DS3_v2"
+                num_workers: 2
 
   prod:
+    mode: production
     workspace:
-      host: https://adb-PROD-WORKSPACE-URL
+      host: https://adb-7405616075629466.6.azuredatabricks.net/
     variables:
       catalog_name: prod_catalog
       schema_name: medallion_prod
       env_name: prod
+    resources:
+      jobs:
+        medallion_pipeline:
+          job_clusters:
+            - job_cluster_key: medallion_shared_cluster
+              new_cluster:
+                spark_version: "15.4.x-scala2.12"
+                node_type_id: "Standard_DS3_v2"
+                num_workers: 2

@@ -3,8 +3,16 @@ resources:
     medallion_pipeline:
       name: medallion_pipeline_${var.env_name}
 
+      job_clusters:
+        - job_cluster_key: medallion_shared_cluster
+          new_cluster:
+            spark_version: "15.4.x-scala2.12"
+            node_type_id: "Standard_DS3_v2"
+            num_workers: 1
+
       tasks:
         - task_key: job1_rdbms_to_delta
+          job_cluster_key: medallion_shared_cluster
           spark_python_task:
             python_file: ./src/job1_rdbms_to_delta.py
             parameters:
@@ -18,6 +26,7 @@ resources:
         - task_key: job2_autoloader_to_delta
           depends_on:
             - task_key: job1_rdbms_to_delta
+          job_cluster_key: medallion_shared_cluster
           spark_python_task:
             python_file: ./src/job2_autoloader_to_delta.py
             parameters:
@@ -31,6 +40,7 @@ resources:
         - task_key: job3_silver_dq
           depends_on:
             - task_key: job2_autoloader_to_delta
+          job_cluster_key: medallion_shared_cluster
           spark_python_task:
             python_file: ./src/job3_silver_dq.py
             parameters:
@@ -44,6 +54,7 @@ resources:
         - task_key: job4_gold_publish
           depends_on:
             - task_key: job3_silver_dq
+          job_cluster_key: medallion_shared_cluster
           spark_python_task:
             python_file: ./src/job4_gold_publish.py
             parameters:

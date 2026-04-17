@@ -4,18 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="763c44fe-4b32-4cc2-8d93-7e24c6a8c5e5" name="Changes" comment="medallion cicd demo">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/cd.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/cd.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/ci.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="763c44fe-4b32-4cc2-8d93-7e24c6a8c5e5" name="Changes" comment="MCD-1 Added Code in files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/databricks.yml" beforeDir="false" afterPath="$PROJECT_DIR$/databricks.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/jobs.yml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/jobs.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/job1_rdbms_to_delta.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/job1_rdbms_to_delta.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/job2_autoloader_to_delta.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/job2_autoloader_to_delta.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/job3_silver_dq.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/job3_silver_dq.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/job4_gold_publish.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/job4_gold_publish.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_basic.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_basic.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,23 +17,23 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="3CO24FQ5McGHwq7Q33Hd28mJnhl" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Sandeep\PycharmProjects\medallion-cicd-demo" />
@@ -78,11 +70,20 @@
       <option name="project" value="LOCAL" />
       <updated>1776242448507</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="MCD-1 Added Code in files">
+      <option name="closed" value="true" />
+      <created>1776245637392</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1776245637392</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="medallion cicd demo" />
-    <option name="LAST_COMMIT_MESSAGE" value="medallion cicd demo" />
+    <MESSAGE value="MCD-1 Added Code in files" />
+    <option name="LAST_COMMIT_MESSAGE" value="MCD-1 Added Code in files" />
   </component>
 </project>
