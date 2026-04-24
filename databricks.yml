@@ -6,80 +6,58 @@ include:
 
 variables:
   catalog_name:
-    default: demo_catalog
-  schema_name:
-    default: demo_schema
+    default: dev_main
+  bronze_schema:
+    default: bronze
+  silver_schema:
+    default: silver
+  gold_schema:
+    default: gold
   env_name:
     default: dev
 
 targets:
   dev:
-    mode: development
     default: true
+    mode: development
     workspace:
-      host: https://adb-7405610751901586.6.azuredatabricks.net/
+      host: https://YOUR-DEV-WORKSPACE.azuredatabricks.net
     variables:
-      catalog_name: dev_catalog
-      schema_name: medallion_dev
+      catalog_name: dev_main
+      bronze_schema: bronze
+      silver_schema: silver
+      gold_schema: gold
       env_name: dev
-    resources:
-      jobs:
-        medallion_pipeline:
-          job_clusters:
-            - job_cluster_key: medallion_shared_cluster
-              new_cluster:
-                spark_version: "15.4.x-scala2.12"
-                node_type_id: "Standard_DS3_v2"
-                num_workers: 1
 
   uat:
+    mode: development
     workspace:
-      host: https://adb-7405614389907274.14.azuredatabricks.net/
+      host: https://YOUR-UAT-WORKSPACE.azuredatabricks.net
     variables:
-      catalog_name: uat_catalog
-      schema_name: medallion_uat
+      catalog_name: uat_main
+      bronze_schema: bronze
+      silver_schema: silver
+      gold_schema: gold
       env_name: uat
-    resources:
-      jobs:
-        medallion_pipeline:
-          job_clusters:
-            - job_cluster_key: medallion_shared_cluster
-              new_cluster:
-                spark_version: "15.4.x-scala2.12"
-                node_type_id: "Standard_DS3_v2"
-                num_workers: 1
 
   preprod:
+    mode: development
     workspace:
-      host: https://adb-7405612367034538.18.azuredatabricks.net/
+      host: https://YOUR-PREPROD-WORKSPACE.azuredatabricks.net
     variables:
-      catalog_name: preprod_catalog
-      schema_name: medallion_preprod
+      catalog_name: preprod_main
+      bronze_schema: bronze
+      silver_schema: silver
+      gold_schema: gold
       env_name: preprod
-    resources:
-      jobs:
-        medallion_pipeline:
-          job_clusters:
-            - job_cluster_key: medallion_shared_cluster
-              new_cluster:
-                spark_version: "15.4.x-scala2.12"
-                node_type_id: "Standard_DS3_v2"
-                num_workers: 2
 
   prod:
     mode: production
     workspace:
-      host: https://adb-7405616075629466.6.azuredatabricks.net/
+      host: https://YOUR-PROD-WORKSPACE.azuredatabricks.net
     variables:
-      catalog_name: prod_catalog
-      schema_name: medallion_prod
+      catalog_name: prod_main
+      bronze_schema: bronze
+      silver_schema: silver
+      gold_schema: gold
       env_name: prod
-    resources:
-      jobs:
-        medallion_pipeline:
-          job_clusters:
-            - job_cluster_key: medallion_shared_cluster
-              new_cluster:
-                spark_version: "15.4.x-scala2.12"
-                node_type_id: "Standard_DS3_v2"
-                num_workers: 2

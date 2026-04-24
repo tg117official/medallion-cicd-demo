@@ -10,10 +10,16 @@ jobs:
     environment: dev
     steps:
       - uses: actions/checkout@v4
-      - uses: databricks/setup-cli@main
+      - uses: databricks/setup-cli@v0.9.0
 
       - name: Deploy to Dev
         run: databricks bundle deploy --target dev
+        env:
+          DATABRICKS_HOST: ${{ secrets.DATABRICKS_DEV_HOST }}
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_DEV_TOKEN }}
+
+      - name: Run Dev Pipeline
+        run: databricks bundle run medallion_pipeline --target dev
         env:
           DATABRICKS_HOST: ${{ secrets.DATABRICKS_DEV_HOST }}
           DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_DEV_TOKEN }}
@@ -24,7 +30,7 @@ jobs:
     environment: uat
     steps:
       - uses: actions/checkout@v4
-      - uses: databricks/setup-cli@main
+      - uses: databricks/setup-cli@v0.9.0
 
       - name: Deploy to UAT
         run: databricks bundle deploy --target uat
@@ -38,7 +44,7 @@ jobs:
     environment: preprod
     steps:
       - uses: actions/checkout@v4
-      - uses: databricks/setup-cli@main
+      - uses: databricks/setup-cli@v0.9.0
 
       - name: Deploy to PreProd
         run: databricks bundle deploy --target preprod
@@ -52,7 +58,7 @@ jobs:
     environment: prod
     steps:
       - uses: actions/checkout@v4
-      - uses: databricks/setup-cli@main
+      - uses: databricks/setup-cli@v0.9.0
 
       - name: Deploy to Prod
         run: databricks bundle deploy --target prod

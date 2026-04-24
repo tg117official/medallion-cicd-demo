@@ -1,52 +1,36 @@
 import argparse
 from pyspark.sql import SparkSession
-from pyspark.sql import functions as F
+from pyspark.sql.functions import sum as spark_sum, count
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--catalog", required=True)
-parser.add_argument("--schema", required=True)
+parser.add_argument("--bronze_schema", required=True)
+parser.add_argument("--silver_schema", required=True)
+parser.add_argument("--gold_schema", required=True)
 parser.add_argument("--env", required=True)
 args = parser.parse_args()
 
 spark = SparkSession.builder.getOrCreate()
 
-silver = spark.table(f"{args.catalog}.{args.schema}.silver_sales_clean")
+# Create gold schema if it does not exist
+spark.sql(f"CREATE SCHEMA IF NOT EXISTS {args.catalog}.{args.gold_schema}")
 
-dim_product = (
-    silver
-    .select("product_id", "product_name", "category")
-    .dropDuplicates()
-)
+silver_df = spark.table(f"{args.catalog}.{args.silver_schema}.silver_sales_clean")
 
-fact_sales = (
-    silver
-    .groupBy("order_date", "product_id")
+gold_df = (
+    silver_df.groupBy("product_id", "product_name", "category")
     .agg(
-        F.sum("quantity").alias("total_qty"),
-        F.sum("amount").alias("total_sales")
+        count("*").alias("total_orders"),
+        spark_sum("quantity").alias("total_quantity"),
+        spark_sum("amount").alias("total_sales_amount")
     )
 )
 
-nosql_ready = (
-    silver
-    .groupBy("customer_id")
-    .agg(
-        F.collect_list(
-            F.struct("order_id", "product_id", "product_name", "amount", "order_date")
-        ).alias("orders")
-    )
+gold_df.write.mode("overwrite").format("delta").saveAsTable(
+    f"{args.catalog}.{args.gold_schema}.gold_sales_summary"
 )
 
-dim_product.write.mode("overwrite").format("delta").saveAsTable(
-    f"{args.catalog}.{args.schema}.dim_product"
+print(
+    f"[{args.env}] Created table "
+    f"{args.catalog}.{args.gold_schema}.gold_sales_summary"
 )
-
-fact_sales.write.mode("overwrite").format("delta").saveAsTable(
-    f"{args.catalog}.{args.schema}.fact_sales_summary"
-)
-
-nosql_ready.write.mode("overwrite").format("delta").saveAsTable(
-    f"{args.catalog}.{args.schema}.nosql_customer_orders"
-)
-
-print(f"[{args.env}] gold tables created")

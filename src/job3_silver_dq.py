@@ -1,35 +1,38 @@
 import argparse
 from pyspark.sql import SparkSession
-from pyspark.sql import functions as F
+from pyspark.sql.functions import col
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--catalog", required=True)
-parser.add_argument("--schema", required=True)
+parser.add_argument("--bronze_schema", required=True)
+parser.add_argument("--silver_schema", required=True)
+parser.add_argument("--gold_schema", required=True)
 parser.add_argument("--env", required=True)
 args = parser.parse_args()
 
 spark = SparkSession.builder.getOrCreate()
 
-orders = spark.table(f"{args.catalog}.{args.schema}.bronze_orders")
-products = spark.table(f"{args.catalog}.{args.schema}.bronze_products")
+# Create silver schema if it does not exist
+spark.sql(f"CREATE SCHEMA IF NOT EXISTS {args.catalog}.{args.silver_schema}")
 
-valid_orders = (
-    orders
-    .filter(F.col("order_id").isNotNull())          # rule 1
-    .filter(F.col("customer_id").isNotNull())       # rule 2
-    .filter(F.col("product_id").isNotNull())        # rule 3
-    .filter(F.col("quantity") > 0)                  # rule 4
-    .filter(F.col("amount") > 0)                    # rule 5
+orders_df = spark.table(f"{args.catalog}.{args.bronze_schema}.bronze_orders")
+products_df = spark.table(f"{args.catalog}.{args.bronze_schema}.bronze_products")
+
+# Simple DQ + enrichment
+clean_orders_df = orders_df.filter(
+    col("order_id").isNotNull() &
+    col("product_id").isNotNull() &
+    col("quantity").isNotNull() &
+    col("amount").isNotNull()
 )
 
-silver = (
-    valid_orders.alias("o")
-    .join(products.alias("p"), "product_id", "left")
-    .withColumn("dq_passed", F.lit(True))
+silver_df = clean_orders_df.join(products_df, on="product_id", how="left")
+
+silver_df.write.mode("overwrite").format("delta").saveAsTable(
+    f"{args.catalog}.{args.silver_schema}.silver_sales_clean"
 )
 
-silver.write.mode("overwrite").format("delta").saveAsTable(
-    f"{args.catalog}.{args.schema}.silver_sales_clean"
+print(
+    f"[{args.env}] Created table "
+    f"{args.catalog}.{args.silver_schema}.silver_sales_clean"
 )
-
-print(f"[{args.env}] silver_sales_clean created")
