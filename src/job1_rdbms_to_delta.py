@@ -12,7 +12,8 @@ args = parser.parse_args()
 spark = SparkSession.builder.getOrCreate()
 
 # Create bronze schema if it does not exist
-spark.sql(f"CREATE SCHEMA IF NOT EXISTS {args.catalog}.{args.bronze_schema}")
+# spark.sql(f"CREATE SCHEMA IF NOT EXISTS {args.catalog}.{args.bronze_schema}")
+spark.sql("CREATE SCHEMA IF NOT EXISTS dev_main.bronze")
 
 # Simulated RDBMS extract -> bronze
 data = [
