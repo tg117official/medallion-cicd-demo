@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="763c44fe-4b32-4cc2-8d93-7e24c6a8c5e5" name="Changes" comment="MCD-2 complete working bundle update">
+    <list default="true" id="763c44fe-4b32-4cc2-8d93-7e24c6a8c5e5" name="Changes" comment="MCD-2 complete working bundle update 3">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/ci.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/databricks.yml" beforeDir="false" afterPath="$PROJECT_DIR$/databricks.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/job1_rdbms_to_delta.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/job1_rdbms_to_delta.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,16 +29,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "MCD-1-Update-rdbms-to-bronze-logic",
-    "settings.editor.selected.configurable": "terminal"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;MCD-1-Update-rdbms-to-bronze-logic&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;terminal&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Sandeep\PycharmProjects\medallion-cicd-demo" />
@@ -108,7 +107,23 @@
       <option name="project" value="LOCAL" />
       <updated>1777016396308</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="MCD-2 complete working bundle update 2">
+      <option name="closed" value="true" />
+      <created>1777451171618</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1777451171618</updated>
+    </task>
+    <task id="LOCAL-00008" summary="MCD-2 complete working bundle update 3">
+      <option name="closed" value="true" />
+      <created>1777451471359</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1777451471359</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -117,6 +132,8 @@
     <MESSAGE value="MCD-2 added cluster config" />
     <MESSAGE value="MCD-1 updated source to bronze" />
     <MESSAGE value="MCD-2 complete working bundle update" />
-    <option name="LAST_COMMIT_MESSAGE" value="MCD-2 complete working bundle update" />
+    <MESSAGE value="MCD-2 complete working bundle update 2" />
+    <MESSAGE value="MCD-2 complete working bundle update 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="MCD-2 complete working bundle update 3" />
   </component>
 </project>
