@@ -11,9 +11,11 @@ args = parser.parse_args()
 
 spark = SparkSession.builder.getOrCreate()
 
-# Create bronze schema if it does not exist
-# spark.sql(f"CREATE SCHEMA IF NOT EXISTS {args.catalog}.{args.bronze_schema}")
-spark.sql("CREATE SCHEMA IF NOT EXISTS dev_main.bronze")
+# Use catalog first
+spark.sql(f"USE CATALOG {args.catalog}")
+
+# Create bronze schema inside the selected catalog
+spark.sql(f"CREATE SCHEMA IF NOT EXISTS {args.bronze_schema}")
 
 # Simulated RDBMS extract -> bronze
 data = [
@@ -29,11 +31,11 @@ df = spark.createDataFrame(
     ["order_id", "customer_id", "product_id", "quantity", "amount", "order_date"]
 )
 
-df.write.mode("overwrite").format("delta").saveAsTable(
-    f"{args.catalog}.{args.bronze_schema}.bronze_orders"
-)
+target_table = f"{args.bronze_schema}.bronze_orders"
+
+df.write.mode("overwrite").format("delta").saveAsTable(target_table)
 
 print(
     f"[{args.env}] Created table "
-    f"{args.catalog}.{args.bronze_schema}.bronze_orders"
+    f"{args.catalog}.{target_table}"
 )
