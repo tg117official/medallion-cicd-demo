@@ -7,19 +7,29 @@ resources:
         - job_cluster_key: medallion_shared_cluster
           new_cluster:
             spark_version: "15.4.x-scala2.12"
-            node_type_id: "Standard_DS3_v2"
-            num_workers: 1
+            node_type_id: "Standard_D4s_v3"
+            num_workers: 0
+            runtime_engine: STANDARD
+            spark_conf:
+              spark.databricks.cluster.profile: singleNode
+              spark.master: local[*]
+            custom_tags:
+              ResourceClass: SingleNode
 
       tasks:
         - task_key: job1_rdbms_to_delta
           job_cluster_key: medallion_shared_cluster
           spark_python_task:
-            python_file: ./src/job1_rdbms_to_delta.py
+            python_file: ../src/job1_rdbms_to_delta.py
             parameters:
               - --catalog
               - ${var.catalog_name}
-              - --schema
-              - ${var.schema_name}
+              - --bronze_schema
+              - ${var.bronze_schema}
+              - --silver_schema
+              - ${var.silver_schema}
+              - --gold_schema
+              - ${var.gold_schema}
               - --env
               - ${var.env_name}
 
@@ -28,12 +38,16 @@ resources:
             - task_key: job1_rdbms_to_delta
           job_cluster_key: medallion_shared_cluster
           spark_python_task:
-            python_file: ./src/job2_autoloader_to_delta.py
+            python_file: ../src/job2_autoloader_to_delta.py
             parameters:
               - --catalog
               - ${var.catalog_name}
-              - --schema
-              - ${var.schema_name}
+              - --bronze_schema
+              - ${var.bronze_schema}
+              - --silver_schema
+              - ${var.silver_schema}
+              - --gold_schema
+              - ${var.gold_schema}
               - --env
               - ${var.env_name}
 
@@ -42,12 +56,16 @@ resources:
             - task_key: job2_autoloader_to_delta
           job_cluster_key: medallion_shared_cluster
           spark_python_task:
-            python_file: ./src/job3_silver_dq.py
+            python_file: ../src/job3_silver_dq.py
             parameters:
               - --catalog
               - ${var.catalog_name}
-              - --schema
-              - ${var.schema_name}
+              - --bronze_schema
+              - ${var.bronze_schema}
+              - --silver_schema
+              - ${var.silver_schema}
+              - --gold_schema
+              - ${var.gold_schema}
               - --env
               - ${var.env_name}
 
@@ -56,11 +74,15 @@ resources:
             - task_key: job3_silver_dq
           job_cluster_key: medallion_shared_cluster
           spark_python_task:
-            python_file: ./src/job4_gold_publish.py
+            python_file: ../src/job4_gold_publish.py
             parameters:
               - --catalog
               - ${var.catalog_name}
-              - --schema
-              - ${var.schema_name}
+              - --bronze_schema
+              - ${var.bronze_schema}
+              - --silver_schema
+              - ${var.silver_schema}
+              - --gold_schema
+              - ${var.gold_schema}
               - --env
               - ${var.env_name}

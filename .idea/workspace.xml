@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="763c44fe-4b32-4cc2-8d93-7e24c6a8c5e5" name="Changes" comment="MCD-1 Added Code in files">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/databricks.yml" beforeDir="false" afterPath="$PROJECT_DIR$/databricks.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/jobs.yml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/jobs.yml" afterDir="false" />
+    <list default="true" id="763c44fe-4b32-4cc2-8d93-7e24c6a8c5e5" name="Changes" comment="MCD-2 modify ci.yml">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/cd.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/cd.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +13,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
@@ -31,7 +34,8 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;
+    &quot;git-widget-placeholder&quot;: &quot;MCD-1-Update-rdbms-to-bronze-logic&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;terminal&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -78,12 +82,66 @@
       <option name="project" value="LOCAL" />
       <updated>1776245637392</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="MCD-2 added cluster config">
+      <option name="closed" value="true" />
+      <created>1776394056340</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1776394056340</updated>
+    </task>
+    <task id="LOCAL-00005" summary="MCD-1 updated source to bronze">
+      <option name="closed" value="true" />
+      <created>1776398080575</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1776398080575</updated>
+    </task>
+    <task id="LOCAL-00006" summary="MCD-2 complete working bundle update">
+      <option name="closed" value="true" />
+      <created>1777016396308</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1777016396308</updated>
+    </task>
+    <task id="LOCAL-00007" summary="MCD-2 complete working bundle update 2">
+      <option name="closed" value="true" />
+      <created>1777451171618</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1777451171618</updated>
+    </task>
+    <task id="LOCAL-00008" summary="MCD-2 complete working bundle update 3">
+      <option name="closed" value="true" />
+      <created>1777451471359</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1777451471359</updated>
+    </task>
+    <task id="LOCAL-00009" summary="MCD-2 modify ci.yml">
+      <option name="closed" value="true" />
+      <created>1777455889590</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1777455889590</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="medallion cicd demo" />
     <MESSAGE value="MCD-1 Added Code in files" />
-    <option name="LAST_COMMIT_MESSAGE" value="MCD-1 Added Code in files" />
+    <MESSAGE value="MCD-2 added cluster config" />
+    <MESSAGE value="MCD-1 updated source to bronze" />
+    <MESSAGE value="MCD-2 complete working bundle update" />
+    <MESSAGE value="MCD-2 complete working bundle update 2" />
+    <MESSAGE value="MCD-2 complete working bundle update 3" />
+    <MESSAGE value="MCD-2 modify ci.yml" />
+    <option name="LAST_COMMIT_MESSAGE" value="MCD-2 modify ci.yml" />
   </component>
 </project>
