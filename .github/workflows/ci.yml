@@ -2,14 +2,16 @@ name: CI
 
 on:
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   validate:
     runs-on: ubuntu-latest
+    environment: dev
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Setup Python
@@ -18,7 +20,7 @@ jobs:
           python-version: "3.11"
 
       - name: Setup Databricks CLI
-        uses: databricks/setup-cli@v0.9.0
+        uses: databricks/setup-cli@main
 
       - name: Install test dependencies
         run: |
@@ -28,8 +30,8 @@ jobs:
       - name: Run unit tests
         run: pytest
 
-      - name: Validate bundle for dev
-        run: databricks bundle validate --target dev
+      - name: Validate Databricks bundle for dev
         env:
-          DATABRICKS_HOST: ${{ secrets.DATABRICKS_DEV_HOST }}
-          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_DEV_TOKEN }}
+          DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+        run: databricks bundle validate --target dev
