@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="763c44fe-4b32-4cc2-8d93-7e24c6a8c5e5" name="Changes" comment="MCD-2 modify ci.yml">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/cd.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/cd.yml" afterDir="false" />
+    <list default="true" id="763c44fe-4b32-4cc2-8d93-7e24c6a8c5e5" name="Changes" comment="MCD-2 added correct cd.yml">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/job1_rdbms_to_delta.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/job1_rdbms_to_delta.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/job2_autoloader_to_delta.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/job2_autoloader_to_delta.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +132,15 @@
       <option name="project" value="LOCAL" />
       <updated>1777455889590</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="MCD-2 added correct cd.yml">
+      <option name="closed" value="true" />
+      <created>1777456896151</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1777456896151</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -142,6 +152,7 @@
     <MESSAGE value="MCD-2 complete working bundle update 2" />
     <MESSAGE value="MCD-2 complete working bundle update 3" />
     <MESSAGE value="MCD-2 modify ci.yml" />
-    <option name="LAST_COMMIT_MESSAGE" value="MCD-2 modify ci.yml" />
+    <MESSAGE value="MCD-2 added correct cd.yml" />
+    <option name="LAST_COMMIT_MESSAGE" value="MCD-2 added correct cd.yml" />
   </component>
 </project>
