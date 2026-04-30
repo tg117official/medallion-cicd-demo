@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="763c44fe-4b32-4cc2-8d93-7e24c6a8c5e5" name="Changes" comment="MCD-2 fixed multipart bug 2">
+    <list default="true" id="763c44fe-4b32-4cc2-8d93-7e24c6a8c5e5" name="Changes" comment="MCD-2 changed new workspaces">
       <change beforePath="$PROJECT_DIR$/.github/workflows/cd.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/cd.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -155,7 +155,23 @@
       <option name="project" value="LOCAL" />
       <updated>1777459424197</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="MCD-2 deploy to UAT">
+      <option name="closed" value="true" />
+      <created>1777461154052</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1777461154052</updated>
+    </task>
+    <task id="LOCAL-00014" summary="MCD-2 changed new workspaces">
+      <option name="closed" value="true" />
+      <created>1777520310394</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1777520310394</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -170,6 +186,8 @@
     <MESSAGE value="MCD-2 added correct cd.yml" />
     <MESSAGE value="MCD-2 fixed multipart bug" />
     <MESSAGE value="MCD-2 fixed multipart bug 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="MCD-2 fixed multipart bug 2" />
+    <MESSAGE value="MCD-2 deploy to UAT" />
+    <MESSAGE value="MCD-2 changed new workspaces" />
+    <option name="LAST_COMMIT_MESSAGE" value="MCD-2 changed new workspaces" />
   </component>
 </project>
