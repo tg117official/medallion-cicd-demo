@@ -21,7 +21,7 @@ targets:
     default: true
     mode: development
     workspace:
-      host: https://adb-7405618116641663.3.azuredatabricks.net
+      host: https://adb-7405604650813357.17.azuredatabricks.net/
     variables:
       catalog_name: dev_main
       bronze_schema: bronze
@@ -32,7 +32,7 @@ targets:
   uat:
     mode: development
     workspace:
-      host: https://adb-7405606563347978.18.azuredatabricks.net/
+      host: https://adb-7405617298941147.7.azuredatabricks.net/
     variables:
       catalog_name: uat_main
       bronze_schema: bronze
@@ -43,7 +43,7 @@ targets:
   preprod:
     mode: development
     workspace:
-      host: https://adb-7405610359692627.7.azuredatabricks.net/
+      host: https://adb-7405609062299237.17.azuredatabricks.net/
     variables:
       catalog_name: preprod_main
       bronze_schema: bronze
@@ -54,7 +54,7 @@ targets:
   prod:
     mode: production
     workspace:
-      host: https://adb-7405615995431469.9.azuredatabricks.net/
+      host: https://adb-7405618802285527.7.azuredatabricks.net/
     variables:
       catalog_name: prod_main
       bronze_schema: bronze
